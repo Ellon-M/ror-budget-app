@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_24_203114) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_25_125850) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,6 +19,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_24_203114) do
     t.string "icon"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "category_payments", force: :cascade do |t|
+    t.bigint "category_id", null: false
+    t.bigint "payment_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_category_payments_on_category_id"
+    t.index ["payment_id"], name: "index_category_payments_on_payment_id"
   end
 
   create_table "payments", force: :cascade do |t|
@@ -31,16 +40,23 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_24_203114) do
   end
 
   create_table "users", force: :cascade do |t|
+    t.string "name"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "category_payments", "categories"
+  add_foreign_key "category_payments", "payments"
   add_foreign_key "payments", "users", column: "author_id"
 end
