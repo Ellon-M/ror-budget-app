@@ -22,9 +22,9 @@ class PaymentsController < ApplicationController
     find_payment_categories(@payment, params[:payment][:category_id])
 
     if @payment.save
-      redirect_to payments_path, notice: 'Transaction successfully added.'
+      redirect_to category_url(@payment.categories.first.id), notice: 'Transaction successfully added.'
     else
-      redirect_to payments_path, alert: 'Something went wrong.'
+      redirect_to category_url(@payment.categories.first.id), alert: 'Something went wrong.'
     end
   end
 
@@ -32,9 +32,9 @@ class PaymentsController < ApplicationController
     respond_to do |format|
       format.html do
         if @payment.destroy
-          redirect_to payments_path, notice: 'Payment deleted successfully'
+          redirect_to request.referer || root_path, notice: 'Payment deleted successfully'
         else
-          redirect_to payments_path, alert: 'Something went wrong! Try again'
+          redirect_to request.referer || root_path, alert: 'Something went wrong! Try again'
         end
       end
     end

@@ -1,21 +1,165 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+@import "categories";
+@import "payments";
+@import "colors";
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--light-grey);
+  color: var(--grey);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+.text-align-center {
+  text-align: center;
+  align-self: center;
+  padding: 5px;
+}
+
+.splash {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background: #e9e7e7;
+}
+
+.launch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.launch h2 {
+  font-size: 44px;
+}
+
+.auth-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 25vh;
+}
+
+.log-in-btn {
+  background-color: var(--blue);
+  color: #ffffff;
+  width: 250px;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.sign-up-btn {
+  background-color: var(--grey);
+  color: #ffffff;
+  width: 250px;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.form-top {
+  display: flex;
+  flex-direction: row;
+  padding: 1.5rem;
+  justify-content: space-between;
+}
+
+.form-title {
+  margin-bottom: 40px;
+  font-size: 20px;
+  margin-top: 5px;
+}
+
+form-container > form {
+  padding-bottom: 2rem;
+  background-color: #fff;
+}
+
+input[type=text], input[type=number], input[type=email], input[type=password] {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  border-bottom: 1px solid#353535; 
+}
+
+input[type=checkbox] {
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
+}
+
+label {
+  margin-right: 1rem;
+}
+
+.checkbox-wrap {
+  margin-top: 1rem;
+  margin-left: 0.5rem;
+  margin-right: 1.5rem;
+  margin-bottom: 3.5rem;
+}
+
+.checkbox-wrap > label {
+  margin-bottom: 15px;
+}
+
+input[type=submit] {
+  background-color: var(--grey);
+  color: white;
+  padding: 0.6rem;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.category-submit, .actions  {
+  margin-top: 2rem;
+}
 
 
-/* body {
-  background-color: #2e2e2e;
-  color: #e4e4e4;
-} */
+input:focus {
+  border: 1px solid green !important;
+  box-shadow: 0 0 3px green !important;
+  -moz-box-shadow: 0 0 3px green !important;
+  -webkit-box-shadow: 0 0 3px green !important;
+}
+  
+input:focus, textarea:focus, select:focus {
+outline-offset: 0px !important;
+outline: none !important;
+}
+
+.shared-links {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  width: 100%;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  font-size: 18px;
+}
+
+.field {
+  margin-top: 1rem;
+}

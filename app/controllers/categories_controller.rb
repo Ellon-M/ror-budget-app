@@ -8,7 +8,7 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.find(params[:id])
-    @purchases = @category.purchases.order('created_at DESC')
+    @payments = @category.payments.order('created_at DESC')
   end
 
   def new

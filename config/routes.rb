@@ -10,5 +10,5 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "splash#index"
   resources :payments, only: [:index, :new, :create, :destroy]
-  resources :categories, only: [:index, :new, :create, :destroy]
+  resources :categories, only: [:index, :new, :show, :create, :destroy]
 end
