@@ -10,4 +10,4 @@ class Payment < ApplicationRecord
   def total_payment
     payment.sum('amount')
   end
-end 
+end

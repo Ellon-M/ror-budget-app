@@ -1,0 +1,14 @@
+<% if @categories.empty? %> 
+  <div class="">
+    <h2 class="">No Categories Yet</h2>
+    <%= link_to "Add new categories", new_category_path, class: "" %>
+  </div>
+<% else %>
+  <% @categories.each do |category| %>
+    <tr>
+      <td><%= category.name %></td>
+      <td><%= category.icon %></td>
+      <td><%= button_to 'Delete', category_path(category), method: :delete, onclick: "return confirm('Are you sure?')", class: "" %></td>
+    </tr>
+  <% end %>
+<% end %>
