@@ -1,0 +1,31 @@
+<% if @payments.empty? %>
+
+  <div class="">
+    <h2 class="">No Transactions Yet</h2>
+    <%= link_to "Add new transaction", new_payment_path, class: "btn-add" %>
+  </div>
+
+<% else %>
+  <section class="">
+    <div>
+      <% payment_lookup = @payments.index_by(&:id) %>
+      <% @categories.each do |category| %>
+        <div>
+          <h5><%= category.name %></h5>
+          <div>
+            <% category.category_payments.each do |payment| %>
+              <% if p = payment_lookup[payment.payment_id] %>
+                <article><%= p.name %></article>
+                <article><%= p.amount %></article>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </section>
+  <div class="add-links">
+    <%= link_to "Add new transaction", new_payment_path, class: "btn-add" %>
+  </div>
+<% end %>
+

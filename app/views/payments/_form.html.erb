@@ -1,0 +1,52 @@
+<%= form_with(model: payment, html: { id: 'payment-form' }) do |form| %>
+  <% if payment.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(payment.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+        <% payment.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.text_field :name, placeholder: "Name", required: true %>
+  </div>
+
+  <div>
+    <%= form.number_field :amount, placeholder: "Amount", required: true %>
+  </div>
+
+  <div class="checkbox-wrap">
+    <%= form.label :categories, style: "display: block" %>
+
+    <% if @categories.present? %>
+      <%= form.collection_check_boxes :category_ids, @categories, :id, :name, { required: true }, multiple: true  %>
+    <% else %>
+      <p>No categories available</p>
+    <% end %>
+    <br>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<% content_for :head do %>
+  <script>
+  const form = document.getElementById('payment-form');
+  const checkboxes = form.querySelectorAll('input[type=checkbox]');
+
+  form.addEventListener('submit', function(event) {
+    const checkedBoxes = Array.from(checkboxes).filter(box => box.checked);
+    if (checkedBoxes.length === 0) {
+      event.preventDefault();
+      alert('Please select at least one category.');
+    }
+  });
+  </script>
+<% end %>
+

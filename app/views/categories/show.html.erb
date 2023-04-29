@@ -1,0 +1,39 @@
+<section class="payments">
+  <nav class="show-nav">
+  <%=link_to categories_path do%>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAbklEQVR4nO3XsQnDQBAEwMehcBHGPblcKXAfFnYlIxRcptT/Euw0cMeycFxr8Qe44zVy+Bsf3HoPn7Dgh2eGdyGxS+E6ksIZULgdZnzxaCM4wQLTsCNTskRJEiVJlCRRksTBY7J2f0xO8Zq1q9kAKyVr2908fnkAAAAASUVORK5CYII=">
+  <%end%>
+  <h4>transactions</h4>
+  <%= button_to destroy_user_session_path, method: :delete, class:"login-button" do %>
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAABvklEQVR4nO2WO0sDQRSFNxq0SOJvUBBNYaG2EkTBV+zU2kawlRRq56MQRCuf/0OttQiihXbiC0VExXejxiKgfLJwhC0mycbsIIgHpsk5956Tmd076zj/KAEIzm+BPx0AqA8qANBQrHkKeAfaSg0AtAAZYMyveSfwoZUMIEAS+NTqLWReAVyo72iARzAu6SVQmU84IuEeEAowQAjYlzyVS1QO3EnUUahpMQGk7ZL83vUyCRISHPhpWGwA6Q9VkjCR8yJnLAaYVcmciUyLbLMYoF0laRN5LrLGYoBalZyZyIzIiMUAEZVkTOSryKjFAFUqeTGRpyLrHEsA4vI4NpFbIrstBnDHsotNEzktcsligFV5TJjIZpFXxklVunkYuJZHY655fSLBkIUAw+p9lE80INENEAvQ3H36b9W7L58wBOxKuAaUBWBeBqyr53bBWxaoAZ5UsFBKCJkvqtcjUO23sBXIenYi9sNt31CPrPEG9PEt9+BJ736shH3+60HPmT8Xc8GZjmPne+TqNVoGejTVolpxDZkVz6v2feb+tr3Ag9nvjk/84yjv0/5TAE3AlDtKFehN61i/TRqHzD+c3PgCdWxOmc81ACoAAAAASUVORK5CYII=">
+  <% end %>
+  </nav>
+
+  <p class= "text-align-center" style="color: green"><%= notice %></p>
+
+  <div class="payments-body"> 
+    <ul class="categories-list-payment">
+      <% if @category.try(:persisted?) %>
+        <li class="category icon-pay"><img src="<%= url_for(@category.icon) %>" style = "width: 80px; height: 80px;"></li>
+      <% end %>
+      <li class="category name-pay"><%= @category.name %></li>
+      <li class="category payment-pay">$<%= @category.payments.map{|p| p.amount}.sum %></li>
+    </ul>
+    <div class="payments-list">
+      <%@payments.each do |payment|%>
+        <div class="payment">
+          <p class="payment-name"><%= payment.name %></p>
+          <p class="payment-amount">$<%= payment.amount %></p>
+          <%= button_to payment_path(payment.id), method: :delete, onclick: "return confirm('Are you sure?')", class: "payment-del" do%>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAABX0lEQVR4nO2WQUrDQBSGZ+VC3YYQmPx/4jJrq3cweod6iOodaje60431DtZDtG70AtZDCEULyoPXIEUx8xIFIR/MJuT/55/MzHtxrqPjPwLgEMDp2ij/MsCC5PvnIc/aXuFifRLrEK+gLwSgbDsAyQPLl5irSWbQ5jr53FkhORWTPM/3QrVZlu1r+Kk5AICJrqK0nCPVTpoEGOsq+qFaksca4NocgORQTU5CtVIbNPzQHADAQE3ODNqRhh+YA5Dsq8nYoL2xbl+FHD7rQQJwpwHC7/8KuX5qMnOBkLwXrfe+F6qtkAJkLSYAnq1FrCKO4y01eXGBiEa0SZJshmq/NJIwriZRFG1bg3/bD6S2u5oA2FHNk2sKyVloP2ilDzTpB6s+QPLWNYXkhZpdFkWx8dP78g7JK9WcNw7gve+RfDP8hLymabrr2iBN0yOSjySXNSZfAniQbWhl8o4O98t8AH0dzkKaOTpaAAAAAElFTkSuQmCC">
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <%= link_to new_payment_path(:category_id => @category.id), class: "add-category-container" do %>
+    <div>
+      Add Transaction
+    </div>
+  <% end %>
+</section>

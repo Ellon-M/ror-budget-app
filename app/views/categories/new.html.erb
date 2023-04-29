@@ -1,0 +1,13 @@
+<div class="form-top">
+  <%=link_to :back, class: "back" do%>
+  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAZ0lEQVR4nO3WMQ6DMBAEwCmSH9EE6Hls8jooUgZZwj9Axig7H9jT+mQdEeeZsVwZvuGLoXX4hBU/fPBMeAtTapeF+5eFex0/XAl/49EyvIsBivHKJ6gyRJUmqjRRpYkujtIuzvK4rx0LgD7wv0U1yAAAAABJRU5ErkJggg==">
+  <%end%>
+  <h4 class="form-title">Add Category</h4>
+  <div>
+   <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAdUlEQVR4nO3Wuw2AQAwDUArYiIZPz7CwWuwICsqgk7gN+BzCbwFHvo9SVSIXATC6+/RaOMkNwO7u7aPhZjaQXEkGgCUiGoXfzlQ7deHiP0+tSz/cGT5HRP1YeBEDJGbWv3YEmYbI1ESmJjI1UcRSWsRaLp92AOAee7UOuWEDAAAAAElFTkSuQmCC">
+  </div>
+</div>
+
+<div class="form-container">
+  <%= render "form", category: @category %>
+</div>

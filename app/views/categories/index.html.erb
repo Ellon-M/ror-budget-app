@@ -1,0 +1,37 @@
+<section class="categories-home">
+  <nav class="home-nav">
+    <div></div>
+    <h4>categories</h4>
+    <%= button_to destroy_user_session_path, method: :delete, class:"login-button" do %>
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAABvklEQVR4nO2WO0sDQRSFNxq0SOJvUBBNYaG2EkTBV+zU2kawlRRq56MQRCuf/0OttQiihXbiC0VExXejxiKgfLJwhC0mycbsIIgHpsk5956Tmd076zj/KAEIzm+BPx0AqA8qANBQrHkKeAfaSg0AtAAZYMyveSfwoZUMIEAS+NTqLWReAVyo72iARzAu6SVQmU84IuEeEAowQAjYlzyVS1QO3EnUUahpMQGk7ZL83vUyCRISHPhpWGwA6Q9VkjCR8yJnLAaYVcmciUyLbLMYoF0laRN5LrLGYoBalZyZyIzIiMUAEZVkTOSryKjFAFUqeTGRpyLrHEsA4vI4NpFbIrstBnDHsotNEzktcsligFV5TJjIZpFXxklVunkYuJZHY655fSLBkIUAw+p9lE80INENEAvQ3H36b9W7L58wBOxKuAaUBWBeBqyr53bBWxaoAZ5UsFBKCJkvqtcjUO23sBXIenYi9sNt31CPrPEG9PEt9+BJ736shH3+60HPmT8Xc8GZjmPne+TqNVoGejTVolpxDZkVz6v2feb+tr3Ag9nvjk/84yjv0/5TAE3AlDtKFehN61i/TRqHzD+c3PgCdWxOmc81ACoAAAAASUVORK5CYII=">
+    <% end %>
+  </nav>
+
+  <p class= "text-align-center" style="color: green"><%= notice %></p>
+
+  
+<% if @categories.empty? %> 
+  <div class="categories-body">
+    <h2 class="">No Categories Yet</h2>
+    <%=  link_to "Add new categories", new_category_path, class: "" %>
+  </div>
+<% else %>
+  <div class="categories-body">
+  <% @categories.each do |category| %>
+    <%=link_to category_path(category), class: "category-item" do%> 
+    <ul class="categories-list">
+      <% if category.present? %>
+        <li class="category cat-icon"><img src="<%= url_for(category.icon) %>" style = "width: 80px; height: 80px;"></li>
+      <% end %>
+      <li class="category cat-name"><%= category.name %></li>
+      <li class="category paymentamt">$<%= category.payments.map{|p| p.amount}.sum %></li>
+    </ul>
+    <% end %>
+  <% end %>
+  <%= link_to new_category_path, class: "add-category-container" do %>
+    <div>
+      Add Category
+    </div>
+  <% end %>
+  </div>
+<% end %>

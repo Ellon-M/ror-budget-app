@@ -1,11 +1,12 @@
 <!-- TABLE OF CONTENTS -->
 
-# 📗 Table of Contents
+# 📗Table of Contents
 
 - [📖 About the Project](#about-project)
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
+    [Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -21,9 +22,9 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [Budget App] <a name="about-project"></a>
+# 📖 Budget Sensei <a name="about-project"></a>
 
-**[Budget App]** is a web application where you can manage your budget: you have a list of transactions associated with a category, so that you can see how much money you spent and on what.
+**Budget Sensei** is a web application where you can manage your budget: based on categories listing every transaction made in each place, thus keeping track of the user's spending amount.
 
 ## 🛠 Built With <a name="built-with">Ruby on Rails</a>
 
@@ -51,11 +52,12 @@
 
 ### Key Features <a name="key-features"></a>
 
-- register and log in, so that the data is private to them.
-- introduce new transactions associated with a category.
-- see the money spent on each category.
+- Authentication - data is private to each user.
+- Makes use of many to many associations - and join tables in the DB
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+### Live Demo <a name="live-demo"https://rails-budget-app-project.onrender.com</a>
 
 <!-- GETTING STARTED -->
 
@@ -74,8 +76,7 @@ In order to run this project you need:
 
 Clone this repository to your desired folder:
 
-- git clone https://github.com/willy836/Recipe-app.git
-- cd Recipe-app/
+- git clone https://github.com/Ellon-M/ror-budget-app.git
 
 ### Install
 
@@ -116,7 +117,8 @@ To run tests, run the following command:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-Coming soon
+- Add a list all transactions page that lists all transactions in each group in a page.
+- Add destroy feature for each category to allow users to delete their categories.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -126,7 +128,7 @@ Coming soon
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/willy836/Recipe-app/issues).
+Feel free to check the [issues page](https://github.com/Ellon-M/ror-budget-app/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -143,6 +145,8 @@ Give this project a ⭐️ if you like it.
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
 - Hat tip to Microverse for the guidance and provision of Ruby on Rails learning materials.
+
+- Much credit to [Gregoire Vella on Behance](https://www.behance.net/gregoirevella) the [author of the original design](https://www.behance.net/gallery/19759151/Snapscan-iOs-design-and-branding?tracking_source=) used by the project.
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
