@@ -20,7 +20,7 @@
   <% @categories.each do |category| %>
     <%=link_to category_path(category), class: "category-item" do%> 
     <ul class="categories-list">
-      <li class="category icon"><img src="<%= category.icon %>" style = "width: 80px; height: 80px;"></li>
+      <li class="category icon"><img src="<%= url_for(category.icon) %>" style = "width: 80px; height: 80px;"></li>
       <li class="category name"><%= category.name %></li>
       <li class="category payment">$<%= category.payments.map{|p| p.amount}.sum %></li>
     </ul>

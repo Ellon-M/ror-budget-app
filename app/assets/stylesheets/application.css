@@ -1,6 +1,9 @@
-@import "categories";
-@import "payments";
-@import "colors";
+:root {
+  --blue: #3778c2;
+  --green: #5fb523;
+  --grey: #434b54;
+  --light-grey: #efefef;
+}
 
 *,
 *::before,
@@ -99,7 +102,8 @@ a:hover {
 input[type=text],
 input[type=number],
 input[type=email],
-input[type=password] {
+input[type=password],
+input[type=file] {
   width: 100%;
   padding: 1rem;
   border: none;
@@ -168,3 +172,197 @@ select:focus {
 .field {
   margin-top: 1rem;
 }
+
+
+/* Categories */
+
+.home-nav {
+  background-color: var(--blue);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 20px;
+}
+
+.home-nav h4 {
+  font-size: 1rem;
+  text-align: center;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #fff;
+  margin-left: 15px;
+}
+
+.categories-body {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 1rem;
+  gap: 20px;
+}
+
+.login-button {
+  background-color: transparent;
+  border: none;
+}
+
+.categories-list {
+  display: flex;
+  background-color: #fff;
+  flex-direction: row;
+  text-align: left;
+  align-items: center;
+  justify-content: center;
+}
+
+.category {
+  display: flex;
+  margin: 0;
+}
+
+.icon {
+  width: 25%;
+}
+
+.name {
+  width: 45%;
+  margin-bottom: 15px;
+  margin-left: 10px;
+}
+
+.payment {
+  width: 30%;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.add-category-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--green);
+  color: white;
+  padding: 0.6rem;
+  font-size: 18px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.add-category-container div {
+  color: white;
+  margin: 10px;
+  padding: 20px 70px;
+  border: 2px solid white;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+@media only screen and (min-width: 900px) {
+  .home-nav h4 {
+    font-size: 1.2rem;
+  }
+
+  .categories-body {
+    padding: 3rem;
+  }
+}
+
+/* Payments */
+
+.show-nav {
+  background-color: var(--blue);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 20px;
+}
+
+.show-nav h4 {
+  font-size: 1rem;
+  text-align: center;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #fff;
+  margin-left: 15px;
+}
+
+.categories-list-payment {
+  display: flex;
+  background-color: #fff;
+  flex-direction: row;
+  text-align: left;
+  align-items: center;
+  justify-content: center;
+  height: 15vh;
+}
+
+.icon-pay {
+  width: 35%;
+}
+
+.name-pay {
+  width: 40%;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.payment-pay {
+  width: 25%;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.payments-body {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0.1rem 1rem;
+  gap: 10px;
+}
+
+.payments-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
+}
+
+.payment {
+  display: flex;
+  background-color: #fff;
+  flex-direction: row;
+  text-align: left;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 1.5rem;
+  margin-bottom: 0;
+}
+
+.payment-name {
+  width: 65%;
+}
+
+.payment-amount {
+  width: 25%;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.payment-del {
+  width: 10%;
+  background: transparent;
+  border: none;
+}
+

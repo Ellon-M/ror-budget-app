@@ -4,7 +4,7 @@ class Payment < ApplicationRecord
   has_many :category_payments, dependent: :destroy
   has_many :categories, through: :category_payments, dependent: :destroy
 
-  validates :name, presence: true
+  validates :name, presence: true, length: { maximum: 50 }
   validates :amount, presence: true, numericality: { greater_than_or_equal_to: 0 }
 
   def total_payment
