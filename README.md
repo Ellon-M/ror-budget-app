@@ -1,6 +1,6 @@
 <!-- TABLE OF CONTENTS -->
 
-# Budget Sensei📗 Table of Contents
+#📗 Table of Contents
 
 - [📖 About the Project](#about-project)
   - [🛠 Built With](#built-with)
@@ -21,9 +21,9 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [Budget App] <a name="about-project"></a>
+# 📖 Budget Sensei <a name="about-project"></a>
 
-**[Budget App]** is a web application where you can manage your budget: based on categories listing every transaction made in each place, thus keeping track of the user's spending amount.
+**Budget Sensei** is a web application where you can manage your budget: based on categories listing every transaction made in each place, thus keeping track of the user's spending amount.
 
 ## 🛠 Built With <a name="built-with">Ruby on Rails</a>
 
