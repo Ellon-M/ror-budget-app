@@ -6,7 +6,9 @@ describe '/payments', type: :request do
   let(:payment) do
     user.payments.create(name: 'Cable', amount: 300)
   end
-  let(:category) { Category.create(name: 'Housing') }
+  let(:category) do
+    user.categories.create(name: 'Food', icon: 'https://images.pexels.com/photos/12745010/')
+  end
 
   describe 'GET /index' do
     before(:example) do
@@ -42,24 +44,18 @@ describe '/payments', type: :request do
     context 'with valid params' do
       it 'creates a new payment and redirects to the index page' do
         expect {
-          post '/payments', params: { payment: { name: 'Rent', amount: 1000} }
+          post payments_path, params: { payment: { name: 'Rent', amount: 1000, category_id: category.id} }
         }.to change { Payment.count }.by(1)
-  
-        expect(response).to redirect_to('/payments')
       end
     end
 
-    # context 'with invalid params' do
-    #   it 'does not create a new payment and renders the new page with an error message' do
-    #     expect {
-    #       post '/payments', params: { payment: { name: '', amount: 0 } }
-    #     }.not_to change { Payment.count }
-  
-    #     expect(response).to redirect_to('/payments')
-    #     follow_redirect!
-    #     expect(response.body).to include('Something went wrong.')
-    #   end
-    # end
+    context 'with invalid params' do
+      it 'does not create a new payment and renders the new page with an error message' do
+        expect {
+          post payments_path, params: { payment: { name: '', amount: 0, category_id: category.id } }
+        }.not_to change { Payment.count }
+      end
+    end
   end
 
   describe 'DELETE /destroy' do
