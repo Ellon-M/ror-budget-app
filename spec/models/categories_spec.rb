@@ -11,7 +11,7 @@ describe Category, type: :model do
   before { subject.save }
 
   it 'name should be present' do
-    subject.name = nil 
+    subject.name = nil
     expect(subject).to_not be_valid
   end
 

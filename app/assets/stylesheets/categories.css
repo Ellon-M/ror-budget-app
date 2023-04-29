@@ -90,9 +90,9 @@
 
 @media only screen and (min-width: 900px) {
   .home-nav h4 {
-      font-size: 1.2rem;
+    font-size: 1.2rem;
   }
-  
+
   .categories-body {
     padding: 3rem;
   }

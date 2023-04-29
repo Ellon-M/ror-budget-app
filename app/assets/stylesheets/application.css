@@ -64,7 +64,7 @@ a:hover {
 
 .log-in-btn {
   background-color: var(--blue);
-  color: #ffffff;
+  color: #fff;
   width: 250px;
   padding: 20px 0;
   text-align: center;
@@ -72,7 +72,7 @@ a:hover {
 
 .sign-up-btn {
   background-color: var(--grey);
-  color: #ffffff;
+  color: #fff;
   width: 250px;
   padding: 20px 0;
   text-align: center;
@@ -91,16 +91,19 @@ a:hover {
   margin-top: 5px;
 }
 
-form-container > form {
+.form-container > form {
   padding-bottom: 2rem;
   background-color: #fff;
 }
 
-input[type=text], input[type=number], input[type=email], input[type=password] {
+input[type=text],
+input[type=number],
+input[type=email],
+input[type=password] {
   width: 100%;
   padding: 1rem;
   border: none;
-  border-bottom: 1px solid#353535; 
+  border-bottom: 1px solid#353535;
 }
 
 input[type=checkbox] {
@@ -131,10 +134,10 @@ input[type=submit] {
   cursor: pointer;
 }
 
-.category-submit, .actions  {
+.category-submit,
+.actions {
   margin-top: 2rem;
 }
-
 
 input:focus {
   border: 1px solid green !important;
@@ -142,10 +145,12 @@ input:focus {
   -moz-box-shadow: 0 0 3px green !important;
   -webkit-box-shadow: 0 0 3px green !important;
 }
-  
-input:focus, textarea:focus, select:focus {
-outline-offset: 0px !important;
-outline: none !important;
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline-offset: 0 !important;
+  outline: none !important;
 }
 
 .shared-links {

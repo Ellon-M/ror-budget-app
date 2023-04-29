@@ -40,13 +40,13 @@ describe '/categories', type: :request do
     it 'should create a new category' do
       expect do
         post categories_path,
-             params: { category: { name: 'Food', icon: "https://images.pexels.com/photos/12745010/" } }
+             params: { category: { name: 'Food', icon: 'https://images.pexels.com/photos/12745010/' } }
       end.to change(Category, :count).by(1)
     end
 
     it 'should redirect to categories_path' do
       post categories_path,
-           params: { category: { name: 'Food', icon: "https://images.pexels.com/photos/12745010" } }
+           params: { category: { name: 'Food', icon: 'https://images.pexels.com/photos/12745010' } }
       expect(response).to redirect_to categories_path
     end
   end

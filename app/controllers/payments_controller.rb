@@ -12,7 +12,7 @@ class PaymentsController < ApplicationController
     @payment = Payment.new
     @categories = Category.where(user: @user)
     return unless params[:category_id]
-    
+
     @category = Category.find(params[:category_id])
   end
 
@@ -43,9 +43,9 @@ class PaymentsController < ApplicationController
   private
 
   def find_payment_categories(payment, categories)
-    if categories
-      payment.categories << Category.find(categories)
-    end
+    return unless categories
+
+    payment.categories << Category.find(categories)
   end
 
   def set_payments

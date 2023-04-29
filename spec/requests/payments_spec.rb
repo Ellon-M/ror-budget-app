@@ -43,17 +43,17 @@ describe '/payments', type: :request do
 
     context 'with valid params' do
       it 'creates a new payment and redirects to the index page' do
-        expect {
-          post payments_path, params: { payment: { name: 'Rent', amount: 1000, category_id: category.id} }
-        }.to change { Payment.count }.by(1)
+        expect do
+          post payments_path, params: { payment: { name: 'Rent', amount: 1000, category_id: category.id } }
+        end.to change { Payment.count }.by(1)
       end
     end
 
     context 'with invalid params' do
       it 'does not create a new payment and renders the new page with an error message' do
-        expect {
+        expect do
           post payments_path, params: { payment: { name: '', amount: 0, category_id: category.id } }
-        }.not_to change { Payment.count }
+        end.to change { Payment.count }.by(0)
       end
     end
   end
