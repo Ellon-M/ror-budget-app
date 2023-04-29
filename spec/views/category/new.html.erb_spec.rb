@@ -4,7 +4,8 @@ describe 'categories/new', type: :view do
   include Devise::Test::IntegrationHelpers
   before(:example) do
     @user = User.create(name: 'Ellon', email: 'ellon@gmail.com', password: 'password', confirmed_at: Time.now)
-    @category = Category.create(name: 'Groceries', icon: fixture_file_upload('app/assets/images/asunaa.jpg', 'image/jpeg'), user: @user)
+    @category = Category.create(name: 'Groceries',
+                                icon: fixture_file_upload('app/assets/images/asunaa.jpg', 'image/jpeg'), user: @user)
     @payment = Payment.create(name: 'Salt', amount: 10, author: @user)
     @payment.categories << @category
 

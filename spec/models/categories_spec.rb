@@ -3,7 +3,7 @@ require 'rails_helper'
 describe Category, type: :model do
   subject do
     Category.new(
-      name: 'Food',
+      name: 'Food'
     )
   end
 
