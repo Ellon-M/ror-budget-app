@@ -13,7 +13,11 @@
 <% if @categories.empty? %> 
   <div class="categories-body">
     <h2 class="">No Categories Yet</h2>
-    <%=  link_to "Add new categories", new_category_path, class: "" %>
+   <%= link_to new_category_path, class: "add-category-container" do %>
+    <div>
+      Add Category
+    </div>
+  <% end %>
   </div>
 <% else %>
   <div class="categories-body">
