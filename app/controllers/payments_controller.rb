@@ -22,9 +22,13 @@ class PaymentsController < ApplicationController
     find_payment_categories(@payment, params[:payment][:category_id])
 
     if @payment.save
-      redirect_to category_url(@payment.categories.first.id), notice: 'Transaction successfully added.'
+      if @payment.categories.length >= 1
+        redirect_to category_url(@payment.categories.first.id), notice: 'Transaction successfully added.'
+      else
+        redirect_back(fallback_location: root_path, alert: 'Select at least one category.')
+      end
     else
-      redirect_to category_url(@payment.categories.first.id), alert: 'Something went wrong.'
+      redirect_back(fallback_location: root_path, alert: 'Something went wrong.')
     end
   end
 

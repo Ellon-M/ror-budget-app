@@ -13,18 +13,14 @@
 <% if @categories.empty? %> 
   <div class="categories-body">
     <h2 class="">No Categories Yet</h2>
-   <%= link_to new_category_path, class: "add-category-container" do %>
-    <div>
-      Add Category
-    </div>
-  <% end %>
+    <%=  link_to "Add new categories", new_category_path, class: "" %>
   </div>
 <% else %>
   <div class="categories-body">
   <% @categories.each do |category| %>
     <%=link_to category_path(category), class: "category-item" do%> 
     <ul class="categories-list">
-      <% if category.try(:persisted?) %>
+      <% if category.present? %>
         <li class="category cat-icon"><img src="<%= url_for(category.icon) %>" style = "width: 80px; height: 80px;"></li>
       <% end %>
       <li class="category cat-name"><%= category.name %></li>
