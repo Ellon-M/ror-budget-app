@@ -6,6 +6,7 @@
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
+    [Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -55,6 +56,8 @@
 - Makes use of many to many associations - and join tables in the DB
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+### Live Demo <a name="live-demo"https://rails-budget-app-project.onrender.com</a>
 
 <!-- GETTING STARTED -->
 
@@ -125,7 +128,7 @@ To run tests, run the following command:
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/willy836/Recipe-app/issues).
+Feel free to check the [issues page](https://github.com/Ellon-M/ror-budget-app/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -142,6 +145,8 @@ Give this project a ⭐️ if you like it.
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
 - Hat tip to Microverse for the guidance and provision of Ruby on Rails learning materials.
+
+- Much credit to [Gregoire Vella on Behance](https://www.behance.net/gregoirevella) the [author of the original design](https://www.behance.net/gallery/19759151/Snapscan-iOs-design-and-branding?tracking_source=) used by the project.
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

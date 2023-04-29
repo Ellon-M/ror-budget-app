@@ -223,17 +223,18 @@ select:focus {
   margin: 0;
 }
 
-.icon {
+.cat-icon {
   width: 25%;
 }
 
-.name {
+.cat-name {
   width: 45%;
   margin-bottom: 15px;
   margin-left: 10px;
+  font-weight: 600;
 }
 
-.payment {
+.paymentamt {
   width: 30%;
   font-size: 18px;
   font-weight: 600;
@@ -365,4 +366,3 @@ select:focus {
   background: transparent;
   border: none;
 }
-

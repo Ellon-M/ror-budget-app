@@ -20,9 +20,11 @@
   <% @categories.each do |category| %>
     <%=link_to category_path(category), class: "category-item" do%> 
     <ul class="categories-list">
-      <li class="category icon"><img src="<%= url_for(category.icon) %>" style = "width: 80px; height: 80px;"></li>
-      <li class="category name"><%= category.name %></li>
-      <li class="category payment">$<%= category.payments.map{|p| p.amount}.sum %></li>
+      <% if category.try(:persisted?) %>
+        <li class="category cat-icon"><img src="<%= url_for(category.icon) %>" style = "width: 80px; height: 80px;"></li>
+      <% end %>
+      <li class="category cat-name"><%= category.name %></li>
+      <li class="category paymentamt">$<%= category.payments.map{|p| p.amount}.sum %></li>
     </ul>
     <% end %>
   <% end %>

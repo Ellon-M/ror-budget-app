@@ -4,7 +4,7 @@ describe '/categories', type: :request do
   include Devise::Test::IntegrationHelpers
   let(:user) { User.create(name: 'Ellon', email: 'ellon@gmail.com', password: 'password', confirmed_at: Time.now) }
   let(:category) do
-    user.categories.create(name: 'Food', icon: 'https://images.pexels.com/photos/12745010/')
+    user.categories.create(name: 'Food')
   end
 
   before { sign_in user }
@@ -40,13 +40,13 @@ describe '/categories', type: :request do
     it 'should create a new category' do
       expect do
         post categories_path,
-             params: { category: { name: 'Food', icon: 'https://images.pexels.com/photos/12745010/' } }
+             params: { category: { name: 'Food' } }
       end.to change(Category, :count).by(1)
     end
 
     it 'should redirect to categories_path' do
       post categories_path,
-           params: { category: { name: 'Food', icon: 'https://images.pexels.com/photos/12745010' } }
+           params: { category: { name: 'Food' } }
       expect(response).to redirect_to categories_path
     end
   end

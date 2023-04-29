@@ -7,7 +7,7 @@ describe '/payments', type: :request do
     user.payments.create(name: 'Cable', amount: 300)
   end
   let(:category) do
-    user.categories.create(name: 'Food', icon: 'https://images.pexels.com/photos/12745010/')
+    user.categories.create(name: 'Food')
   end
 
   describe 'GET /index' do

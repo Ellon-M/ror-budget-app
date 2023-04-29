@@ -8,7 +8,7 @@ describe 'payments/new', type: :view do
   include Devise::Test::IntegrationHelpers
   before(:example) do
     @user = User.create(name: 'Ellon', email: 'ellon@gmail.com', password: 'password', confirmed_at: Time.now)
-    @category = Category.create(name: 'Groceries', icon: 'https://images.pexels.com/photos/12745010/', user: @user)
+    @category = Category.create(name: 'Groceries', user: @user)
     @payment = Payment.create(name: 'Salt', amount: 10, author: @user)
     @payment.categories << @category
     sign_in @user

@@ -4,7 +4,7 @@ describe 'categories/new', type: :view do
   include Devise::Test::IntegrationHelpers
   before(:example) do
     @user = User.create(name: 'Ellon', email: 'ellon@gmail.com', password: 'password', confirmed_at: Time.now)
-    @category = Category.create(name: 'Groceries', icon: 'https://images.pexels.com/photos/12745010/', user: @user)
+    @category = Category.create(name: 'Groceries', icon: fixture_file_upload('app/assets/images/asunaa.jpg', 'image/jpeg'), user: @user)
     @payment = Payment.create(name: 'Salt', amount: 10, author: @user)
     @payment.categories << @category
 
@@ -18,7 +18,7 @@ describe 'categories/new', type: :view do
 
   it 'fills and submits form' do
     fill_in 'category[name]', with: 'Groceries'
-    fill_in 'category[icon]', with: 'https://images.pexels.com/photos/12745010/'
+    find('input[type="file"]').set('app/assets/images/asunaa.jpg')
     find("input[type='submit']").click
     sleep 1
     expect(current_path).to eql categories_path
